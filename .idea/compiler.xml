@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="javabase" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="12">
+      <module name="java8" target="12" />
+      <module name="javase" target="12" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="jack" options="" />
+      <module name="java8" options="-parameters" />
+      <module name="javabase" options="-parameters" />
+      <module name="javase" options="-parameters" />
+    </option>
+  </component>
+</project>

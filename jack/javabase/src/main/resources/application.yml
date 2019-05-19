@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  freemarker:
+    charset: UTF-8
+    enabled: true
+  banner:
+    charset: UTF-8
+
