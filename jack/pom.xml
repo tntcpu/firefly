@@ -17,6 +17,7 @@
 
     <modules>
         <module>javabase</module>
+        <module>spring-family</module>
     </modules>
 
 </project>
