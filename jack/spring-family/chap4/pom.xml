@@ -14,6 +14,7 @@
 
     <modules>
         <module>mongo-demo</module>
+        <module>mongo-repository-demo</module>
     </modules>
 
 
