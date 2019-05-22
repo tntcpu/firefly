@@ -2,6 +2,7 @@ package com.tntcpu.javabase.java8.chap7;
 
 
 import java.util.function.Function;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 /**
@@ -27,7 +28,7 @@ public class ParallelStreams {
 
 	public static void main(String[] args) {
 		System.out.println("Sequential sum done in:"+
-				measureSumPerf(ParallelStreams::parallelSum,10_000_000) + "msecs");
+				measureSumPerf(ParallelStreams::rangedSum,10_000_000) + "msecs");
 	}
 
 	public static long sequentialSum(long n){
@@ -49,5 +50,10 @@ public class ParallelStreams {
 			result += i;
 		}
 		return result;
+	}
+
+	public static long rangedSum(long n){
+		return LongStream.rangeClosed(1,n)
+				.reduce(0,Long::sum);
 	}
 }
