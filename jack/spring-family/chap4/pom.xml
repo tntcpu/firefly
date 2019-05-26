@@ -15,6 +15,7 @@
     <modules>
         <module>mongo-demo</module>
         <module>mongo-repository-demo</module>
+        <module>jedis-demo</module>
     </modules>
 
 

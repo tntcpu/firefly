@@ -8,6 +8,8 @@
         <option value="$PROJECT_DIR$/jack/java12/pom.xml" />
         <option value="$PROJECT_DIR$/jack/javabase/pom.xml" />
         <option value="$PROJECT_DIR$/jack/spring-family/chap4/mongo-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/jack/spring-family/chap4/mongo-repository-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/jack/spring-family/chap4/jedis-demo/pom.xml" />
       </list>
     </option>
   </component>

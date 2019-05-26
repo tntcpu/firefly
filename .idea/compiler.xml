@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="javabase" />
         <module name="mongo-demo" />
+        <module name="mongo-repository-demo" />
+        <module name="jedis-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="12">
@@ -23,7 +25,9 @@
       <module name="java8" options="-parameters" />
       <module name="javabase" options="-parameters" />
       <module name="javase" options="-parameters" />
+      <module name="jedis-demo" options="-parameters" />
       <module name="mongo-demo" options="-parameters" />
+      <module name="mongo-repository-demo" options="-parameters" />
       <module name="spring-family" options="" />
       <module name="springfamily" options="-parameters" />
     </option>
