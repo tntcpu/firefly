@@ -16,6 +16,8 @@
         <module>mongo-demo</module>
         <module>mongo-repository-demo</module>
         <module>jedis-demo</module>
+        <module>cache-demo</module>
+        <module>cache-with-redis-demo</module>
     </modules>
 
 
