@@ -12,6 +12,6 @@ public class BytesToMoneyConverter implements Converter<byte[], Money> {
     @Override
     public Money convert(byte[] source) {
         String value = new String(source, StandardCharsets.UTF_8);
-        return Money.ofMinor(CurrencyUnit.of("CNY"),Long.parseLong(value));
+        return Money.ofMinor(CurrencyUnit.of("CNY"), Long.parseLong(value));
     }
 }
