@@ -7,14 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cache-with-redis-demo" />
+        <module name="leetcode" />
         <module name="redis-demo" />
         <module name="simple-reactor-demo" />
         <module name="cache-demo" />
-        <module name="mongo-demo" />
         <module name="mongo-repository-demo" />
         <module name="redis-repository-demo" />
         <module name="javabase" />
-        <module name="leetcode" />
+        <module name="mongo-demo" />
         <module name="jedis-demo" />
       </profile>
     </annotationProcessing>
