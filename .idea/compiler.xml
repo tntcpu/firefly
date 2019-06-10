@@ -6,9 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="javabase" />
+        <module name="cache-with-redis-demo" />
+        <module name="redis-demo" />
+        <module name="simple-reactor-demo" />
+        <module name="cache-demo" />
         <module name="mongo-demo" />
         <module name="mongo-repository-demo" />
+        <module name="redis-repository-demo" />
+        <module name="javabase" />
+        <module name="leetcode" />
         <module name="jedis-demo" />
       </profile>
     </annotationProcessing>
@@ -20,14 +26,21 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cache-demo" options="-parameters" />
+      <module name="cache-with-redis-demo" options="-parameters" />
       <module name="chap4" options="" />
+      <module name="chap5" options="" />
       <module name="jack" options="" />
       <module name="java8" options="-parameters" />
       <module name="javabase" options="-parameters" />
       <module name="javase" options="-parameters" />
       <module name="jedis-demo" options="-parameters" />
+      <module name="leetcode" options="-parameters" />
       <module name="mongo-demo" options="-parameters" />
       <module name="mongo-repository-demo" options="-parameters" />
+      <module name="redis-demo" options="-parameters" />
+      <module name="redis-repository-demo" options="-parameters" />
+      <module name="simple-reactor-demo" options="-parameters" />
       <module name="spring-family" options="" />
       <module name="springfamily" options="-parameters" />
     </option>
