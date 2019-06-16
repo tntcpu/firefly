@@ -1,31 +1,26 @@
-package com.tntcpu.leetcode.easy;
+package com.tntcpu.leetcode.medium;
 
 import com.tntcpu.leetcode.utils.ListNode;
 
 public class AddTwoNumbers_2_Best {
 
     public static void main(String[] args) {
-        ListNode l1 = new ListNode(2);
-        ListNode l2 = new ListNode(5);
-        ListNode listNode1 = addTwoNumbers(l1, l2);
+        ListNode l1 = new ListNode(0);
+        l1.next = new ListNode(1);
+        ListNode l2 = new ListNode(0);
+        l2.next = new ListNode(1);
+        l2.next.next = new ListNode(2);
 
-        l1.next = new ListNode(4);
-        l2.next = new ListNode(6);
-        ListNode listNode2 = addTwoNumbers(l1, l2);
-
-        l1.next = new ListNode(3);
-        l2.next = new ListNode(4);
-        ListNode listNode3 = addTwoNumbers(l1, l2);
-
-
-        System.out.println(listNode1.val);
-        System.out.println(listNode2.val);
-        System.out.println(listNode3.val);
-//        int val = listNode.val;
-//        int
+        ListNode l3 = addTwoNumbers(l1, l2);
+        int val = l3.val;
+        int val1 = l3.next.val;
+        int val2 = l3.next.next.val;
+        System.out.println(val);
+        System.out.println(val1);
+        System.out.println(val2);
     }
 
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    private static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummyHead = new ListNode(0);
         ListNode p = l1, q = l2, curr = dummyHead;
         int carry = 0;

@@ -1,9 +1,9 @@
-package com.tntcpu.leetcode.easy;
+package com.tntcpu.leetcode.medium;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddTwoNumbers_2_Self {
+public class AddTwoNumbers_2_Self_Raw {
     public static void main(String[] args) {
         List<Integer> addOneList = new ArrayList<>();
         List<Integer> addTwoList = new ArrayList<>();
