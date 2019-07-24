@@ -1,4 +1,4 @@
-package com.tntcpu.javabase.tij.concurrency;
+package com.tntcpu.javabase.tij.concurrency.example;
 
 /**
  * @program: firefly
