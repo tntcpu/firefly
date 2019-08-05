@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
  * @author: ZhangZhentao
  * @create: 2019-07-26
  **/
+//普通内部类继承Thread方式
 class InnerThread1 {
 	private int countDown = 5;
 	private Inner inner;
@@ -49,6 +50,7 @@ class InnerThread1 {
 	}
 }
 
+//匿名内部类Thread方式
 class InnerThread2 {
 	private Logger logger = LoggerFactory.getLogger(InnerThread2.class);
 	private int countDown = 5;
@@ -80,6 +82,7 @@ class InnerThread2 {
 	}
 }
 
+//普通内部类实现Runnable方式
 class InnerRunnable1 {
 	private Logger logger = LoggerFactory.getLogger(InnerRunnable1.class);
 	private int countDown = 5;
@@ -118,6 +121,7 @@ class InnerRunnable1 {
 	}
 }
 
+//匿名内部类Runnable方式
 class InnerRunnable2 {
 	private Logger logger = LoggerFactory.getLogger(InnerRunnable2.class);
 	private int countDown = 5;
