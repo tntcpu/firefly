@@ -14,6 +14,8 @@
 
     <modules>
         <module>simple-reactor-demo</module>
+        <module>redis-lettuce-demo</module>
+        <module>mongodb-demo</module>
     </modules>
 
 
