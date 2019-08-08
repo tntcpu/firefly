@@ -20,11 +20,11 @@ class Sleeper extends Thread {
 		duration = sleepTime;
 		start();
 	}
-
 	@Override
 	public void run() {
 		try {
 			sleep(duration);
+//			logger.info( getName() + " sleeping!");
 		} catch (InterruptedException e) {
 			logger.error(getName() + " was interrupted. " + "isInterrupted(): " + isInterrupted());
 			logger.error(getName() + " has awakened");
@@ -47,6 +47,7 @@ class Joiner extends Thread {
 	public void  run(){
 		try {
 			sleeper.join();
+			logger.info("test");
 		} catch (InterruptedException e) {
 			logger.error("interrupted");
 		}
@@ -57,11 +58,11 @@ class Joiner extends Thread {
 public class Joining {
 	public static void main(String[] args) {
 		Sleeper
-				sleepy = new Sleeper("Sleepy", 1500),
-				grumpy = new Sleeper("Grumpy", 1500);
+				sleepy = new Sleeper("Sleepy", 3000),
+				grumpy = new Sleeper("Grumpy", 4000);
 		Joiner
 				dopey = new Joiner("Dopey", sleepy),
 				doc = new Joiner("Doc", grumpy);
-		grumpy.interrupt();
+//		grumpy.interrupt();
 	}
 }
