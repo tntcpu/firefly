@@ -12,11 +12,12 @@ public class EvenGenerator extends IntGenerator {
 	@Override
 	public int next() {
 		++currentEvenValue;
+		Thread.yield();
 		++currentEvenValue;
 		return currentEvenValue;
-	}
+}
 
 	public static void main(String[] args) {
-		EvenChecker.test(new EvenGenerator());
+		EvenChecker.test(new EvenGenerator(),2);
 	}
 }
