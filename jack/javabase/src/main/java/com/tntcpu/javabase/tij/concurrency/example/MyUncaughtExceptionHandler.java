@@ -28,12 +28,17 @@ class ExceptionThread2 implements Runnable {
 }
 
 @Slf4j
-class MyUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
+public class MyUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
 	private Logger logger = LoggerFactory.getLogger(MyUncaughtExceptionHandler.class);
 
 	@Override
 	public void uncaughtException(Thread t, Throwable e) {
 		logger.info("caught " + e);
+	}
+
+	public static void main(String[] args) {
+		ExecutorService exec = Executors.newCachedThreadPool(new HandlerThreadFactory());
+		exec.execute(new ExceptionThread2());
 	}
 }
 
@@ -49,12 +54,5 @@ class HandlerThreadFactory implements ThreadFactory {
 		t.setUncaughtExceptionHandler(new MyUncaughtExceptionHandler());
 		logger.info("eh = " + t.getUncaughtExceptionHandler());
 		return t;
-	}
-}
-
-public class CaptureUncaughtException {
-	public static void main(String[] args) {
-		ExecutorService exec = Executors.newCachedThreadPool(new HandlerThreadFactory());
-		exec.execute(new ExceptionThread2());
 	}
 }
