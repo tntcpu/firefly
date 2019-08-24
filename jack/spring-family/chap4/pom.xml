@@ -19,6 +19,7 @@
         <module>cache-demo</module>
         <module>cache-with-redis-demo</module>
         <module>redis-demo</module>
+        <module>redis-repository-demo</module>
     </modules>
 
 

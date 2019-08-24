@@ -16,10 +16,8 @@
         <module>simple-reactor-demo</module>
         <module>redis-lettuce-demo</module>
         <module>mongodb-demo</module>
+        <module>performance-aspect-demo</module>
     </modules>
-
-
-
 
 
 </project>
