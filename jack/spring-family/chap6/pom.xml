@@ -15,6 +15,7 @@
         <module>simple-controller-demo</module>
         <module>context-hierarchy-demo</module>
         <module>complex-controller-demo</module>
+        <module>more-complex-controller-demo</module>
     </modules>
 
     <properties>
