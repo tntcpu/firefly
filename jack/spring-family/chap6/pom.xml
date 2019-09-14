@@ -16,6 +16,8 @@
         <module>context-hierarchy-demo</module>
         <module>complex-controller-demo</module>
         <module>more-complex-controller-demo</module>
+        <module>json-view-demo</module>
+        <module>thymeleaf-view-demo</module>
     </modules>
 
     <properties>

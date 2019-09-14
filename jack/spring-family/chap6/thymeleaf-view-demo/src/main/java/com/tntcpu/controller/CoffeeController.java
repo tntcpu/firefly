@@ -1,10 +1,8 @@
-package com.tntcpu.waiter.controller;
+package com.tntcpu.controller;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
-import com.sun.org.apache.bcel.internal.generic.PUSH;
-import com.tntcpu.waiter.controller.request.NewCoffeeRequest;
-import com.tntcpu.waiter.model.Coffee;
-import com.tntcpu.waiter.service.CoffeeService;
+import com.tntcpu.controller.request.NewCoffeeRequest;
+import com.tntcpu.model.Coffee;
+import com.tntcpu.service.CoffeeService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
@@ -39,18 +37,12 @@ public class CoffeeController {
     public Coffee addCoffee(@Valid NewCoffeeRequest newCoffee,
                             BindingResult result) {
         if (result.hasErrors()) {
-            log.warn("Binging Errors: {}", result);
+            // 这里先简单处理一下，后续讲到异常处理时会改
+            log.warn("Binding Errors: {}", result);
             return null;
         }
         return coffeeService.saveCoffee(newCoffee.getName(), newCoffee.getPrice());
     }
-
-//    @PostMapping(path = "/", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-//    @ResponseBody
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public Coffee addCoffeeWithoutBindingResult(@Valid NewCoffeeRequest newCoffe) {
-//        return coffeeService.saveCoffee(newCoffe.getName(), newCoffe.getPrice());
-//    }
 
     @PostMapping(path = "/", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseBody
@@ -60,7 +52,8 @@ public class CoffeeController {
         if (!file.isEmpty()) {
             BufferedReader reader = null;
             try {
-                reader = new BufferedReader(new InputStreamReader(file.getInputStream()));
+                reader = new BufferedReader(
+                        new InputStreamReader(file.getInputStream()));
                 String str;
                 while ((str = reader.readLine()) != null) {
                     String[] arr = StringUtils.split(str, " ");
