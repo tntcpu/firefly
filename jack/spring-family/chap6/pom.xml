@@ -20,7 +20,7 @@
         <module>thymeleaf-view-demo</module>
         <module>cache-boot-demo</module>
         <module>exception-demo</module>
-        <module>inteceptor-demo</module>
+        <module>interceptor-demo</module>
     </modules>
 
     <properties>
