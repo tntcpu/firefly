@@ -18,6 +18,9 @@
         <module>more-complex-controller-demo</module>
         <module>json-view-demo</module>
         <module>thymeleaf-view-demo</module>
+        <module>cache-boot-demo</module>
+        <module>exception-demo</module>
+        <module>inteceptor-demo</module>
     </modules>
 
     <properties>
