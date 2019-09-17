@@ -2,6 +2,9 @@ package com.tntcpu.javabase.tij.concurrency.exercise;
 
 import com.tntcpu.javabase.tij.concurrency.example.LiftOff;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * @program: firefly
  * @description:
@@ -33,4 +36,7 @@ class LiftOff2 implements Runnable {
 }
 
 public class E20_InterruptCachedThreadPool {
+	public static void main(String[] args) {
+		ExecutorService exec = Executors.newCachedThreadPool();
+	}
 }
