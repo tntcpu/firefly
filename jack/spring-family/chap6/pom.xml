@@ -21,6 +21,7 @@
         <module>cache-boot-demo</module>
         <module>exception-demo</module>
         <module>interceptor-demo</module>
+        <module>springbucks</module>
     </modules>
 
     <properties>

@@ -11,7 +11,10 @@
 
     <artifactId>chap7</artifactId>
     <packaging>pom</packaging>
-    <dependencies></dependencies>
+    <modules>
+        <module>simple-resttemplate-demo</module>
+        <module>customer-service</module>
+    </modules>
 
     <properties>
         <java.version>1.8</java.version>
