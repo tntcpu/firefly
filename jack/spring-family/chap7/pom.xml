@@ -14,6 +14,7 @@
     <modules>
         <module>simple-resttemplate-demo</module>
         <module>customer-service</module>
+        <module>complex-resttemplate-demo</module>
     </modules>
 
     <properties>
