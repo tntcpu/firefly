@@ -15,6 +15,7 @@
         <module>hateoas-waiter-service</module>
         <module>hateoas-customer-service</module>
         <module>session-demo</module>
+        <module>webflux-waiter-service</module>
     </modules>
 
     <properties>
