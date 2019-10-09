@@ -36,7 +36,7 @@ class Chef implements Runnable {
 		try {
 			while (!Thread.interrupted()) {
 				synchronized (this) {
-					if (resturant.meal != null) {
+					while (resturant.meal != null) {
 						wait();
 					}
 				}
@@ -69,7 +69,7 @@ class Waiter implements Runnable {
 		try {
 			while (!Thread.interrupted()) {
 				synchronized (this) {
-					if (resturant.meal == null) {
+					while (resturant.meal == null) {
 						wait();
 					}
 				}

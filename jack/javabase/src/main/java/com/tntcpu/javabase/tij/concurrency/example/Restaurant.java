@@ -62,7 +62,7 @@ class Chef implements Runnable {
 						wait();
 					}
 				}
-				if (++count == 10) {
+				if (++count == 5) {
 					System.out.println("Out of food, closing");
 					restaurant.exec.shutdownNow();
 				}
@@ -71,7 +71,7 @@ class Chef implements Runnable {
 					restaurant.meal = new Meal(count);
 					restaurant.waitPerson.notifyAll();
 				}
-				TimeUnit.MILLISECONDS.sleep(100);
+//				TimeUnit.MILLISECONDS.sleep(100);
 			}
 		} catch (Exception e) {
 			System.out.println("Chef interrupted");
