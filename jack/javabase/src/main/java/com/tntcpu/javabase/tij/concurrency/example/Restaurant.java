@@ -71,7 +71,7 @@ class Chef implements Runnable {
 					restaurant.meal = new Meal(count);
 					restaurant.waitPerson.notifyAll();
 				}
-//				TimeUnit.MILLISECONDS.sleep(100);
+				TimeUnit.MILLISECONDS.sleep(100);
 			}
 		} catch (Exception e) {
 			System.out.println("Chef interrupted");
