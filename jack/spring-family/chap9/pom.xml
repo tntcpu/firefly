@@ -15,6 +15,7 @@
         <module>autoconfigure-demo</module>
         <module>spring-boot-autoconfigure</module>
         <module>greeting</module>
+        <module>autoconfigure-backport</module>
     </modules>
 
 
