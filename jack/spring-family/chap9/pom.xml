@@ -16,6 +16,7 @@
         <module>spring-boot-autoconfigure</module>
         <module>greeting</module>
         <module>autoconfigure-backport</module>
+        <module>tntcpu-spring-boot-starter</module>
     </modules>
 
 

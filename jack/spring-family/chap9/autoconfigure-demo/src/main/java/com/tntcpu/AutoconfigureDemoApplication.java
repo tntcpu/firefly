@@ -10,8 +10,8 @@ public class AutoconfigureDemoApplication {
         SpringApplication.run(AutoconfigureDemoApplication.class, args);
     }
 
-    @Bean
-    public GreetingApplicationRunner greetingApplicationRunner(){
-        return new GreetingApplicationRunner("Spring");
-    }
+//    @Bean
+//    public GreetingApplicationRunner greetingApplicationRunner(){
+//        return new GreetingApplicationRunner("Spring");
+//    }
 }
