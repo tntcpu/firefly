@@ -12,6 +12,11 @@ import java.util.concurrent.TimeUnit;
  * @author: ZhangZhentao
  * @create: 2019-10-12
  **/
+
+/**
+ * 吐司对象本身(重点包含吐司状态、id、涂黄油方法、抹果酱方法)
+ *
+ */
 class Toast {
 	public enum Status {DRY, BUTTERED, JAMMED}
 	private Status status = Status.DRY;
@@ -23,7 +28,12 @@ class Toast {
 	public int getId(){return id;}
 	public String toString(){return "Toast " + id + ": "+ status;}
 }
+//吐司队列
 class ToastQueue extends LinkedBlockingQueue<Toast>{}
+
+/**
+ * 吐司制作者（包括吐司队列、计数器、制作吐司并将其加入到吐司队列）
+ */
 class Toaster implements Runnable {
 	private ToastQueue toastQueue;
 	private int count = 0;
@@ -44,6 +54,10 @@ class Toaster implements Runnable {
 		System.out.println("toaster off");
 	}
 }
+
+/**
+ * 涂黄油的人（包括未涂黄油的吐司队列、已涂黄油的吐司队列、将未涂黄油的吐司从队列中取出添加到已涂黄油的吐司队列中）
+ */
 class Butterer implements Runnable{
 	private ToastQueue dryQueue, butteredQueue;
 	public Butterer(ToastQueue dryQueue, ToastQueue butteredQueue) {
@@ -65,6 +79,10 @@ class Butterer implements Runnable{
 		System.out.println("butterer off");
 	}
 }
+
+/**
+ * 涂果酱的人（包括已涂黄油的吐司队列、制作完成后的吐司队列、从队列中取出已涂黄油的吐司并将其涂上果酱再将其加入已完成吐司队列）
+ */
 class Jammer implements Runnable {
 	private ToastQueue butteredQueue, finishedQueue;
 	public Jammer(ToastQueue butteredQueue, ToastQueue finishedQueue) {
@@ -86,6 +104,10 @@ class Jammer implements Runnable {
 		System.out.println("jammer off");
 	}
 }
+
+/**
+ * 吃吐司的人（包括已制作完成的吐司队列、计数器、从队列中取出吐司并通过验证后将其吃掉）
+ */
 class Eater implements Runnable{
 	private ToastQueue finishedQueue;
 	private int counter = 0;
@@ -110,6 +132,10 @@ class Eater implements Runnable{
 		System.out.println("Eater off");
 	}
 }
+
+/**
+ * 吐司一条龙自动化（包括未涂黄油吐司队列、已涂黄油吐司队列、制作完成黄油队列，吐司制作者、涂黄油的人、抹果酱的人、吃吐司的人）
+ */
 public class ToastMatic {
 	public static void main(String[] args) throws InterruptedException {
 		ToastQueue dryQueue=new ToastQueue(),
