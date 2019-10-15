@@ -16,7 +16,7 @@ class Toast {
 	public enum Status {
 		DRY, BUTTERED, JAMMED, READY {
 			public String toString() {
-				return BUTTERED.toString() + "& " + JAMMED.toString();
+				return BUTTERED.toString() + " & " + JAMMED.toString();
 			}
 		}
 	}
