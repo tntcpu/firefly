@@ -45,7 +45,7 @@ class Toast {
 	}
 
 	public String toString() {
-		return "Toast " + id + ": " + status;
+		return "Toast" + id + " : " + status;
 	}
 }
 
