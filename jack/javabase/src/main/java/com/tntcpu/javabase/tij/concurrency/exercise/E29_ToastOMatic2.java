@@ -20,47 +20,21 @@ class Toast {
 			}
 		}
 	}
-
 	private Status status = Status.DRY;
 	private final int id;
-
-	public Toast(int id) {
-		this.id = id;
-	}
-
-	public void butter() {
-		status = (status == Status.DRY) ? Status.BUTTERED : Status.READY;
-	}
-
-	public void jam() {
-		status = (status == Status.DRY) ? Status.JAMMED : Status.READY;
-	}
-
-	public Status getStatus() {
-		return status;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public String toString() {
-		return "Toast" + id + " : " + status;
-	}
+	public Toast(int id) { this.id = id;}
+	public void butter() {status = (status == Status.DRY) ? Status.BUTTERED : Status.READY;}
+	public void jam() {status = (status == Status.DRY) ? Status.JAMMED : Status.READY;}
+	public Status getStatus() {return status;}
+	public int getId() {return id;}
+	public String toString() {return "Toast" + id + " : " + status;}
 }
-
-class ToastQueue extends LinkedBlockingQueue<Toast> {
-}
-
+class ToastQueue extends LinkedBlockingQueue<Toast> {}
 class Toaster implements Runnable {
 	private ToastQueue toastQueue;
 	private int count;
 	private Random rand = new Random(47);
-
-	public Toaster(ToastQueue toastQueue) {
-		this.toastQueue = toastQueue;
-	}
-
+	public Toaster(ToastQueue toastQueue) {this.toastQueue = toastQueue;}
 	@Override
 	public void run() {
 		try {
@@ -69,7 +43,6 @@ class Toaster implements Runnable {
 				Toast t = new Toast(count++);
 				System.out.println(t);
 				toastQueue.put(t);
-
 			}
 		} catch (Exception e) {
 			System.out.println("toaster interrupted");
@@ -77,10 +50,8 @@ class Toaster implements Runnable {
 		System.out.println("toaster off");
 	}
 }
-
 class Butterer implements Runnable {
 	private ToastQueue inQueue, butteredQueue;
-
 	public Butterer(ToastQueue inQueue, ToastQueue butteredQueue) {
 		this.inQueue = inQueue;
 		this.butteredQueue = butteredQueue;
@@ -92,6 +63,7 @@ class Butterer implements Runnable {
 			while (!Thread.interrupted()) {
 				Toast t = inQueue.take();
 				t.butter();
+				System.out.println(t);
 				butteredQueue.put(t);
 			}
 		} catch (Exception e) {
@@ -100,15 +72,12 @@ class Butterer implements Runnable {
 		System.out.println("butterer off");
 	}
 }
-
 class Jammer implements Runnable {
 	private ToastQueue inQueue, jammedQueue;
-
 	public Jammer(ToastQueue inQueue, ToastQueue jammedQueue) {
 		this.inQueue = inQueue;
 		this.jammedQueue = jammedQueue;
 	}
-
 	@Override
 	public void run() {
 		try {
@@ -124,14 +93,11 @@ class Jammer implements Runnable {
 		System.out.println("jammer off");
 	}
 }
-
 class Eater implements Runnable {
 	private ToastQueue finishedQueue;
-
 	public Eater(ToastQueue finishedQueue) {
 		this.finishedQueue = finishedQueue;
 	}
-
 	@Override
 	public void run() {
 		try {
@@ -150,17 +116,14 @@ class Eater implements Runnable {
 		System.out.println("Eater off");
 	}
 }
-
 class Alternator implements Runnable {
 	private ToastQueue inQueue, out1Queue, out2Queue;
 	private boolean outTo2;
-
 	public Alternator(ToastQueue inQueue, ToastQueue out1Queue, ToastQueue out2Queue) {
 		this.inQueue = inQueue;
 		this.out1Queue = out1Queue;
 		this.out2Queue = out2Queue;
 	}
-
 	@Override
 	public void run() {
 		try {
@@ -179,7 +142,6 @@ class Alternator implements Runnable {
 		System.out.println("alternator off");
 	}
 }
-
 class Merger implements Runnable {
 	private ToastQueue in1Queue, in2Queue, toBeButteredQueue, toBeJammedQueue, finishedQueue;
 
@@ -190,7 +152,6 @@ class Merger implements Runnable {
 		this.toBeJammedQueue = toBeJammedQueue;
 		this.finishedQueue = finishedQueue;
 	}
-
 	@Override
 	public void run() {
 		try {
@@ -235,7 +196,7 @@ public class E29_ToastOMatic2 {
 		exec.execute(new Butterer(toBeButteredQueue,butteredQueue));
 		exec.execute(new Jammer(toBeJammedQueue, jammedQueue));
 		exec.execute(new Merger(butteredQueue,jammedQueue,toBeButteredQueue,toBeJammedQueue,finishedQueue));
-		exec.execute(new Eater(finishedQueue));
+//		exec.execute(new Eater(finishedQueue));
 		TimeUnit.SECONDS.sleep(5);
 		exec.shutdownNow();
 	}
