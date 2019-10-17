@@ -67,7 +67,7 @@ class WaitingTask implements Runnable {
 public class CountDownLatchDemo {
 	static final int SIZE = 100;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		ExecutorService exec = Executors.newCachedThreadPool();
 		CountDownLatch countDownLatch = new CountDownLatch(SIZE);
 		for (int i = 0; i < 10; i++) {
@@ -76,6 +76,7 @@ public class CountDownLatchDemo {
 		for (int i = 0; i < SIZE; i++) {
 			exec.execute(new TaskPortion(countDownLatch));
 		}
+		TimeUnit.SECONDS.sleep(10);
 		System.out.println("launched all tasks");
 		exec.shutdownNow();
 	}
