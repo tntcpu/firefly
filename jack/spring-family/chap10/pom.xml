@@ -14,6 +14,8 @@
     <modules>
         <module>ssl-waiter-service</module>
         <module>ssl-customer-service</module>
+        <module>http2-waiter-service</module>
+        <module>http2-customer-service</module>
     </modules>
 
 
