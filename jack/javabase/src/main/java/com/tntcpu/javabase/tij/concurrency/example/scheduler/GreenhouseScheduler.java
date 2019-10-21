@@ -93,13 +93,11 @@ public class GreenhouseScheduler {
 		public void run() {
 			System.out.println("terminating");
 			scheduler.shutdownNow();
-			new Thread() {
-				public void run() {
-					for (DataPoint d : data) {
-						System.out.println(d);
-					}
+			new Thread(() -> {
+				for (DataPoint d : data) {
+					System.out.println(d);
 				}
-			}.start();
+			}).start();
 		}
 	}
 
