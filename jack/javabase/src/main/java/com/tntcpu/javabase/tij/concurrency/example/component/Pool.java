@@ -1,4 +1,4 @@
-package com.tntcpu.javabase.tij.concurrency;
+package com.tntcpu.javabase.tij.concurrency.example.component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,15 +23,13 @@ public class Pool<T> {
 		for (int i = 0; i < size; i++) {
 			try {
 				items.add(tClass.newInstance());
-			} catch (InstantiationException e) {
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
+			} catch (InstantiationException | IllegalAccessException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-	public T checkOut(){
-		available.acquire();;
+	public T checkOut() throws InterruptedException {
+		available.acquire();
 		return getItem();
 	}
 	public void checkIn(T x){

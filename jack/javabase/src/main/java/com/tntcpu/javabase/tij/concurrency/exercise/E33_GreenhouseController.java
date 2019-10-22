@@ -61,7 +61,7 @@ class Controller implements Runnable {
 		q.put(c);
 	}
 }
-j
+
 class GreenhouseControls extends Controller {
 	public GreenhouseControls(DelayQueue<Event> q) {
 		super(q);
