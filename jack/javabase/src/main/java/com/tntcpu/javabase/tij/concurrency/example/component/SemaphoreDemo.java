@@ -1,6 +1,5 @@
 package com.tntcpu.javabase.tij.concurrency.example.component;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -18,26 +17,38 @@ class CheckoutTask<T> implements Runnable {
 	private static int counter = 0;
 	private final int id = counter++;
 	private Pool<T> pool;
-	public CheckoutTask(Pool<T> pool) { this.pool = pool; }
+
+	public CheckoutTask(Pool<T> pool) {
+		this.pool = pool;
+	}
+
 	@Override
 	public void run() {
 		T item;
 		try {
 			item = pool.checkOut();
-			System.out.println(this + " checked out "+item);
+			System.out.println(this + " checked out " + item);
 			TimeUnit.SECONDS.sleep(1);
 			System.out.println(this + " checking in " + item);
 			pool.checkIn(item);
-		} catch (Exception e) {}
+		} catch (Exception e) {
+		}
 	}
-	public String toString(){return "CheckoutTask "+id+" ";}
+
+	public String toString() {
+		return "CheckoutTask " + id + " ";
+	}
 }
+
 public class SemaphoreDemo {
 	final static int SIZE = 25;
+
 	public static void main(String[] args) throws InterruptedException {
-		final Pool<Fat> pool = new Pool<>(Fat.class,SIZE);
+		final Pool<Fat> pool = new Pool<>(Fat.class, SIZE);
 		ExecutorService exec = Executors.newCachedThreadPool();
-		for (int i = 0; i < SIZE; i++) { exec.execute(new CheckoutTask<>(pool)); }
+		for (int i = 0; i < SIZE; i++) {
+			exec.execute(new CheckoutTask<>(pool));
+		}
 		System.out.println("all checkoutTasks created");
 		List<Fat> list = new ArrayList<>();
 		for (int i = 0; i < SIZE; i++) {
@@ -55,9 +66,13 @@ public class SemaphoreDemo {
 		});
 		TimeUnit.SECONDS.sleep(2);
 		blocked.cancel(true);
-		System.out.println("checking in objects in "+list);
-		for (Fat f: list){pool.checkIn(f);}
-		for (Fat f:list){ pool.checkIn(f);}
+		System.out.println("checking in objects in " + list);
+		for (Fat f : list) {
+			pool.checkIn(f);
+		}
+		for (Fat f : list) {
+			pool.checkIn(f);
+		}
 		exec.shutdown();
 	}
 }
