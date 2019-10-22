@@ -18,7 +18,7 @@
         <module>chap7</module>
         <module>chap8</module>
         <module>chap9</module>
-        <module>ssl-waiter-service</module>
+<!--        <module>ssl-waiter-service</module>-->
         <module>chap10</module>
         <module>chap12</module>
     </modules>

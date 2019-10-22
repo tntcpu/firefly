@@ -16,7 +16,7 @@
         <module>eureka-waiter-service</module>
     </modules>
     <properties>
-        <spring-cloud.version>Greewich.SR3</spring-cloud.version>
+        <spring-cloud.version>Hoxton</spring-cloud.version>
     </properties>
 
 
