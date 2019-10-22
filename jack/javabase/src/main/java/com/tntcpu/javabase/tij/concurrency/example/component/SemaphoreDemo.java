@@ -21,7 +21,7 @@ class CheckoutTask<T> implements Runnable {
 	public CheckoutTask(Pool<T> pool) { this.pool = pool; }
 	@Override
 	public void run() {
-		T item = null;
+		T item;
 		try {
 			item = pool.checkOut();
 			System.out.println(this + " checked out "+item);
