@@ -15,6 +15,7 @@
         <module>eureka-server</module>
         <module>eureka-waiter-service</module>
         <module>ribbon-customer-service</module>
+        <module>feign-customer-service</module>
     </modules>
     <properties>
         <spring-cloud.version>Greenwich.SR3</spring-cloud.version>
