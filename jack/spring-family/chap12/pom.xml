@@ -18,6 +18,8 @@
         <module>feign-customer-service</module>
         <module>zk-waiter-service</module>
         <module>zk-customer-service</module>
+        <module>consul-waiter-service</module>
+        <module>consul-customer-service</module>
     </modules>
     <properties>
         <spring-cloud.version>Greenwich.SR3</spring-cloud.version>
