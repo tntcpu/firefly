@@ -8,7 +8,6 @@ package com.tntcpu.algs4.chap1_basis.example;
  */
 public class E000_Test {
     public static void main(String[] args) {
-        int c = 5/2;
-        System.out.println(c);
+        System.out.println("3"+1+2);
     }
 }
