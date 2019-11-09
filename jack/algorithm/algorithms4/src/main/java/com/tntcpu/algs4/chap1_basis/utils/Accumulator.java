@@ -10,7 +10,7 @@ public class Accumulator {
     private double total;
     private int N;
 
-    public Accumulator(double val) {
+    public void addDataValue(double val) {
         N++;
         total += val;
     }
