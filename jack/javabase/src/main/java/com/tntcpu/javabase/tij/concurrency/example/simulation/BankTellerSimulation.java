@@ -143,8 +143,11 @@ class Teller implements Runnable, Comparable<Teller> {
 class TellManager implements Runnable {
 	private ExecutorService exec;
 	private CustomerLine customers;
+	//优先队列
 	private PriorityQueue<Teller> workingTeller = new PriorityQueue<>();
+	//普通队列
 	private Queue<Teller> tellersDoingOtherThings = new LinkedList<>();
+	//调整期
 	private int adjustmentPeriod;
 	private static Random rand = new Random(47);
 
@@ -156,17 +159,20 @@ class TellManager implements Runnable {
 		exec.execute(teller);
 		workingTeller.add(teller);
 	}
-
+	//调整柜台数量
 	public void adjustTellerNumber() {
+		//触发条件(顾客数量是办公人员数量的两倍时)
 		if (customers.size() / workingTeller.size() > 2) {
 			if (tellersDoingOtherThings.size() > 0) {
 				Teller teller = tellersDoingOtherThings.remove();
 				teller.serveCustomerLine();
 				workingTeller.offer(teller);
+				return;
 			}
 			Teller teller = new Teller(customers);
 			exec.execute(teller);
 			workingTeller.add(teller);
+			return;
 		}
 		if (workingTeller.size() > 1 && customers.size() / workingTeller.size() < 2) {
 			reassignOneTeller();
@@ -177,7 +183,7 @@ class TellManager implements Runnable {
 			}
 		}
 	}
-
+	//减少柜台服务的数量
 	private void reassignOneTeller() {
 		Teller teller = workingTeller.poll();
 		teller.doSomethingElse();
@@ -193,7 +199,6 @@ class TellManager implements Runnable {
 				System.out.println(customers + "{ ");
 				for (Teller teller : workingTeller) {
 					System.out.println(teller.shortString() + " ");
-					;
 				}
 				System.out.println("}");
 			}
