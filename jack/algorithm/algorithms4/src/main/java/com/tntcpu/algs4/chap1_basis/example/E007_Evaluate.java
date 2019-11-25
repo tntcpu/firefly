@@ -15,9 +15,12 @@ public class E007_Evaluate {
     public static void main(String[] args) {
         Stack<String> ops = new Stack<>();
         Stack<Double> vals = new Stack<>();
+
         while (!StdIn.isEmpty()) {
             String s = StdIn.readString();
+
             if (s.equals("(")) {
+
             } else if (s.equals("+")) {
                 ops.push(s);
             } else if (s.equals("-")) {
@@ -35,12 +38,18 @@ public class E007_Evaluate {
                     v = vals.pop() + v;
                 } else if (op.equals("-")) {
                     v = vals.pop() - v;
+                } else if (op.equals("*")) {
+                    v = vals.pop() * v;
+                } else if (op.equals("/")) {
+                    v = vals.pop() / v;
                 } else if (op.equals("sqrt")) {
                     v = Math.sqrt(v);
-                } else {
-                    vals.push(Double.parseDouble(s));
                 }
+                vals.push(v);
+            } else if (s.equals(";")) {
                 StdOut.println(vals.pop());
+            } else {
+                vals.push(Double.parseDouble(s));
             }
         }
     }
