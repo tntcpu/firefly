@@ -17,15 +17,8 @@ import java.util.concurrent.TimeUnit;
  **/
 class WebClient {
 	private final int serviceTime;
-
-	public WebClient(int tm) {
-		serviceTime = tm;
-	}
-
-	public int getServiceTime() {
-		return serviceTime;
-	}
-
+	public WebClient(int tm) { serviceTime = tm; }
+	public int getServiceTime() { return serviceTime;}
 	public String toString() {
 		return "[" + serviceTime + "]";
 	}
@@ -35,15 +28,12 @@ class WebClientLine extends ArrayBlockingQueue<WebClient> {
 	public WebClientLine(int capacity) {
 		super(capacity);
 	}
-
 	public String toString() {
 		if (this.size() == 0) {
-			return "[Empty]";
-		}
+			return "[Empty]"; }
 		StringBuilder result = new StringBuilder();
 		for (WebClient client : this) {
-			result.append(client);
-		}
+			result.append(client); }
 		return result.toString();
 	}
 }
@@ -52,12 +42,9 @@ class WebClientGenerator implements Runnable {
 	private WebClientLine clients;
 	volatile int loadFator = 1;
 	private static Random rand = new Random(47);
-
 	public WebClientGenerator(WebClientLine cq) {
 		clients = cq;
 	}
-
-	@Override
 	public void run() {
 		try {
 			while (!Thread.interrupted()) {
@@ -75,12 +62,7 @@ class Server implements Runnable {
 	private static int counter;
 	private final int id = counter++;
 	private WebClientLine clients;
-
-	public Server(WebClientLine cq) {
-		clients = cq;
-	}
-
-	@Override
+	public Server(WebClientLine cq) { clients = cq; }
 	public void run() {
 		try {
 			while (!Thread.interrupted()) {
@@ -92,26 +74,23 @@ class Server implements Runnable {
 		}
 		System.out.println(this + "terminating");
 	}
-
-	public String toString() {
-		return "Server " + id + " ";
-	}
-
-	public String shortString() {
-		return "T" + id;
-	}
+	public String toString() { return "Server " + id + " "; }
+	public String shortString() { return "T" + id; }
 }
 
 class SimulationManager implements Runnable {
 	private ExecutorService exec;
 	private WebClientGenerator gen;
 	private WebClientLine webClients;
-	private Queue<Server> servers = new LinkedList<>();
+	private Queue<Server> servers =
+			new LinkedList<>();
 	private int adjustmentPeriod;
+
 	private boolean stable = true;
 	private int prevSize;
-
-	public SimulationManager(ExecutorService exec, WebClientGenerator gen, WebClientLine webClients, int adjustmentPeriod, int n) {
+	public SimulationManager(ExecutorService exec,
+	                         WebClientGenerator gen, WebClientLine webClients,
+	                         int adjustmentPeriod, int n) {
 		this.exec = exec;
 		this.gen = gen;
 		this.webClients = webClients;
@@ -122,13 +101,16 @@ class SimulationManager implements Runnable {
 			servers.add(server);
 		}
 	}
-
 	public void adjustLoadFactor() {
+
+
+
+
 		if (webClients.size() > prevSize) {
 			if (stable) {
 				stable = false;
-			} else {
-				System.out.println("peak load factor:~" + gen.loadFator);
+			} else if (!stable) {
+				System.out.print("peak load factor: ~" + gen.loadFator);
 				exec.shutdownNow();
 			}
 		} else {
@@ -137,66 +119,38 @@ class SimulationManager implements Runnable {
 		}
 		prevSize = webClients.size();
 	}
-
-	@Override
 	public void run() {
 		try {
 			while (!Thread.interrupted()) {
 				TimeUnit.MILLISECONDS.sleep(adjustmentPeriod);
 				System.out.print(webClients + "{ ");
 				for (Server server : servers) {
-					System.out.println(server.shortString() + " ");
-				}
+					System.out.print(server.shortString() + " "); }
 				System.out.print("}");
 				adjustLoadFactor();
 			}
 		} catch (Exception e) {
-			System.out.println(this + "interrupted");
+			System.out.print(this + "interrupted");
 		}
 		System.out.println(this + "terminating");
 	}
-
-	public String toString() {
-		return "SimulationManager ";
-	}
+	public String toString() { return "SimulationManager "; }
 }
 
 public class E35_WebClientServerSimulation {
 	static final int MAX_LINE_SIZE = 50;
 	static final int NUM_OF_SERVERS = 3;
 	static final int ADJUSTMENT_PERIOD = 1000;
-
 	public static void main(String[] args) throws IOException {
 		ExecutorService exec = Executors.newCachedThreadPool();
-		WebClientLine clients = new WebClientLine(MAX_LINE_SIZE);
+		WebClientLine clients =
+				new WebClientLine(MAX_LINE_SIZE);
 		WebClientGenerator gen = new WebClientGenerator(clients);
 		exec.execute(gen);
-		exec.execute(new SimulationManager(exec, gen, clients, ADJUSTMENT_PERIOD, NUM_OF_SERVERS));
+		exec.execute(new SimulationManager(
+				exec, gen, clients, ADJUSTMENT_PERIOD, NUM_OF_SERVERS));
 		System.out.println("Press 'ENTER' to quit");
 		System.in.read();
 		exec.shutdownNow();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
