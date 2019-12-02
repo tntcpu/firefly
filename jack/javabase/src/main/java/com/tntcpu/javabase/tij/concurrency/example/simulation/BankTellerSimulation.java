@@ -228,23 +228,3 @@ public class BankTellerSimulation {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
