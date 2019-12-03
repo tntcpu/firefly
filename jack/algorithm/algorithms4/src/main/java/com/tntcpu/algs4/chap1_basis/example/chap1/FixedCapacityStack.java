@@ -1,9 +1,7 @@
-package com.tntcpu.algs4.chap1_basis.example;
+package com.tntcpu.algs4.chap1_basis.example.chap1;
 
 import com.tntcpu.algs4.chap1_basis.utils.StdIn;
 import com.tntcpu.algs4.chap1_basis.utils.StdOut;
-
-import java.util.Objects;
 
 /**
  * @program: firefly

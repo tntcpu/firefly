@@ -1,4 +1,4 @@
-package com.tntcpu.algs4.chap1_basis.example;
+package com.tntcpu.algs4.chap1_basis.example.chap1;
 
 
 import com.tntcpu.algs4.chap1_basis.utils.Counter;
