@@ -9,7 +9,7 @@ import com.tntcpu.algs4.chap1_basis.utils.StdOut;
  * @author: tntcpu
  * @create: 2019-12-05
  */
-public class E013_ThreddSum {
+public class E013_ThreeSum {
     public static int count(int[] a){
         int n = a.length;
         int cnt = 0;

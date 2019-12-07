@@ -1,7 +1,6 @@
-package com.tntcpu.algs4.chap1_basis.example.chap1;
+package com.tntcpu.algs4.chap1_basis.utils;
 
-import com.tntcpu.algs4.chap1_basis.utils.StdOut;
-import com.tntcpu.algs4.chap1_basis.utils.StdRandom;
+import com.tntcpu.algs4.chap1_basis.example.chap1.E013_ThreeSum;
 
 /**
  * @program: firefly
@@ -9,10 +8,10 @@ import com.tntcpu.algs4.chap1_basis.utils.StdRandom;
  * @author: tntcpu
  * @create: 2019-12-05
  */
-public class E014_StopWatch {
+public class StopWatch {
     private final long start;
 
-    public E014_StopWatch() {
+    public StopWatch() {
         start = System.currentTimeMillis();
     }
 
@@ -27,8 +26,8 @@ public class E014_StopWatch {
         for (int i = 0; i < n; i++) {
             a[i] = StdRandom.uniform(-1000000, 1000000);
         }
-        E014_StopWatch timer = new E014_StopWatch();
-        int cnt = E013_ThreddSum.count(a);
+        StopWatch timer = new StopWatch();
+        int cnt = E013_ThreeSum.count(a);
         double time = timer.elapsedTime();
         StdOut.println(cnt + " triples " + time + " seconds");
     }
