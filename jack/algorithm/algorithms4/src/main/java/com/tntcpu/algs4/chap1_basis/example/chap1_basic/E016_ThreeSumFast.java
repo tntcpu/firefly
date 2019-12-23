@@ -1,6 +1,5 @@
-package com.tntcpu.algs4.chap1_basis.example.chap1;
+package com.tntcpu.algs4.chap1_basis.example.chap1_basic;
 
-import com.tntcpu.algs4.chap1_basis.utils.In;
 import com.tntcpu.algs4.chap1_basis.utils.StdOut;
 import com.tntcpu.algs4.chap1_basis.utils.StdRandom;
 import com.tntcpu.algs4.chap1_basis.utils.StopWatch;
@@ -13,26 +12,23 @@ import java.util.Arrays;
  * @author: tntcpu
  * @create: 2019-12-08
  */
-public class E015_TwoSumFast {
+public class E016_ThreeSumFast {
     public static int count(int[] a) {
         Arrays.sort(a);
         int n = a.length;
         int cnt = 0;
         for (int i = 0; i < n; i++) {
-            if (E002_BinarySearch.rank(-a[i], a) > i) {
-                cnt++;
+            for (int j = i + 1; j < n; j++) {
+                if (E002_BinarySearch.rank(-a[i] - a[j], a) > j) {
+                    cnt++;
+                }
             }
         }
         return cnt;
     }
 
     public static void main(String[] args) {
-//        int n = 1000;
-//        int n = 2000;
-//        int n = 4000;
-//        int n = 8000;
-//        int n = 16000;
-        int n = 1000000;
+        int n = 30000;
         int max = 1000000;
         int[] a = new int[n];
         for (int i = 0; i < n; i++) {

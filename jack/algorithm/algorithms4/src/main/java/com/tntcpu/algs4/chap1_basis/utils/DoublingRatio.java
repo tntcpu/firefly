@@ -1,6 +1,6 @@
 package com.tntcpu.algs4.chap1_basis.utils;
 
-import static com.tntcpu.algs4.chap1_basis.example.chap1.E014_DoublingTest.timeTrial;
+import static com.tntcpu.algs4.chap1_basis.example.chap1_basic.E014_DoublingTest.timeTrial;
 
 /**
  * @program: firefly

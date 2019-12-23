@@ -1,4 +1,4 @@
-package com.tntcpu.algs4.chap1_basis.example.chap1;
+package com.tntcpu.algs4.chap1_basis.example.chap1_basic;
 
 
 import java.util.Iterator;

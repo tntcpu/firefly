@@ -1,7 +1,6 @@
-package com.tntcpu.algs4.chap1_basis.example.chap1;
+package com.tntcpu.algs4.chap1_basis.example.chap1_basic;
 
 import com.tntcpu.algs4.chap1_basis.utils.In;
-import com.tntcpu.algs4.chap1_basis.utils.StdIn;
 import com.tntcpu.algs4.chap1_basis.utils.StdOut;
 import com.tntcpu.algs4.chap1_basis.utils.StopWatch;
 
