@@ -1,5 +1,6 @@
 package com.tntcpu.algs4.chap1_basis.example.chap2_sort;
 
+import com.tntcpu.algs4.chap1_basis.utils.In;
 import com.tntcpu.algs4.chap1_basis.utils.StdOut;
 
 /**
@@ -9,16 +10,24 @@ import com.tntcpu.algs4.chap1_basis.utils.StdOut;
  * @create: 2019-12-24
  */
 public class Selection {
+    public static void main(String[] args) {
+
+        String[] a = {"bed","bug","yes","zoo","bad","all","yet"};
+        sort(a);
+        assert isSorted(a);
+        show(a);
+    }
+
     public static void sort(Comparable[] a) {
         int n = a.length;
         for (int i = 0; i < n; i++) {
             int min = i;
             for (int j = i + 1; j < n; j++) {
-                if (less(a[j],a[min])){
+                if (less(a[j], a[min])) {
                     min = j;
                 }
             }
-            exch(a,i,min);
+            exch(a, i, min);
         }
     }
 
@@ -39,9 +48,9 @@ public class Selection {
         StdOut.println();
     }
 
-    public static boolean isSorted(Comparable[] a){
-        for (int i = 1; i < a.length; i++){
-            if (less(a[i],a[i-1])){
+    public static boolean isSorted(Comparable[] a) {
+        for (int i = 1; i < a.length; i++) {
+            if (less(a[i], a[i - 1])) {
                 return false;
             }
         }
