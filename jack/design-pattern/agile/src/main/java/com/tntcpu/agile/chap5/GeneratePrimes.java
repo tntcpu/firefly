@@ -41,4 +41,5 @@ public class GeneratePrimes {
             return new int[0];
         }
     }
+
 }
