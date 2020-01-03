@@ -29,7 +29,7 @@ public class Game5 {
 
 			int frameScore = firstThrow + secondFrame;
 			if (frameScore == 10) {
-				score += frameScore + itsThrows[ball++];
+				score += frameScore + itsThrows[ball];
 			} else {
 				score += frameScore;
 			}
