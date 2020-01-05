@@ -7,7 +7,6 @@ package com.tntcpu.agile.chap6;
  * @create: 2020-01-03
  **/
 public class Game16 {
-    private int itsScore = 0;
     private int itsCurrentFrame = 0;
     private boolean firstThrowInFrame = true;
     private Scorer itsScorer = new Scorer();
@@ -22,7 +21,6 @@ public class Game16 {
 
     public void add(int pins) {
         itsScorer.addThrow(pins);
-        itsScore += pins;
         adjustCurrentFrame(pins);
     }
 
