@@ -6,7 +6,7 @@ package com.tntcpu.agile.chap6;
  * @author: ZhangZhentao
  * @create: 2020-01-03
  **/
-public class Game11 {
+public class Game12 {
     private int ball;
     private int firstThrow;
     private int secondThrow;
@@ -39,10 +39,11 @@ public class Game11 {
         ball = 0;
         int score = 0;
         for (int currentFrame = 0; currentFrame < theFrame; currentFrame++) {
-            firstThrow = itsThrows[ball++];
-            if (firstThrow == 10) {
-                score += 10 + itsThrows[ball] + itsThrows[ball + 1];
-            } else {
+            firstThrow = itsThrows[ball];
+            if (firstThrow == 10){
+                ball++;
+                score += 10 + itsThrows[ball] + itsThrows[ball+1];
+            }else {
                 score += handleSecondThrow();
             }
         }
@@ -51,11 +52,13 @@ public class Game11 {
 
     private int handleSecondThrow() {
         int score = 0;
-        secondThrow = itsThrows[ball++];
+        secondThrow = itsThrows[ball+1];
         int frameScore = firstThrow + secondThrow;
         if (frameScore == 10) {
+            ball += 2;
             score += frameScore + itsThrows[ball];
         } else {
+            ball += 2;
             score += frameScore;
         }
         return score;
