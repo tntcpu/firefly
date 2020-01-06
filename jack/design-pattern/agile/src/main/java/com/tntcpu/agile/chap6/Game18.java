@@ -40,7 +40,7 @@ public class Game18 {
 		itsCurrentFrame = Math.min(10, itsCurrentFrame + 1);
 	}
 
-	private int scoreForFrame(int theFrame) {
+	public int scoreForFrame(int theFrame) {
 		return itsScorer.scoreForFrame(theFrame);
 	}
 }
