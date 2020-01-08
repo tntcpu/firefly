@@ -6,17 +6,13 @@ package com.tntcpu.agile.chap6;
  * @author: ZhangZhentao
  * @create: 2020-01-03
  **/
-public class Game16 {
+public class Game18 {
 	private int itsCurrentFrame = 0;
 	private boolean firstThrowInFrame = true;
 	private Scorer itsScorer = new Scorer();
 
 	public int score() {
-		return scoreForFrame(getCurrentFrame());
-	}
-
-	public int getCurrentFrame() {
-		return itsCurrentFrame;
+		return scoreForFrame(itsCurrentFrame);
 	}
 
 	public void add(int pins) {
@@ -25,22 +21,19 @@ public class Game16 {
 	}
 
 	private void adjustCurrentFrame(int pins) {
-		if (firstThrowInFrame) {
-			if (!adjustFrameForStrike(pins)) {
-				firstThrowInFrame = false;
-			}
-		} else {
-			firstThrowInFrame = true;
+		if (lastBallInFrame(pins)) {
 			advanceFrame();
+		} else {
+			firstThrowInFrame = false;
 		}
 	}
 
-	private boolean adjustFrameForStrike(int pins) {
-		if (pins == 10) {
-			advanceFrame();
-			return true;
-		}
-		return false;
+	private boolean lastBallInFrame(int pins) {
+		return strike(pins) || !firstThrowInFrame;
+	}
+
+	private boolean strike(int pins) {
+		return (firstThrowInFrame && pins == 10);
 	}
 
 	private void advanceFrame() {
