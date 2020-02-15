@@ -21,6 +21,10 @@ public class HourlyClassification extends PaymentClassification {
         return hourlyRate;
     }
 
+    public TimeCard getTimeCard(Date date) {
+        return timeCards.get(date);
+    }
+
     public void addTimeCard(TimeCard card) {
         timeCards.put(card.getDate(), card);
     }
