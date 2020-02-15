@@ -1,5 +1,8 @@
 package com.tntcpu.agile.chap19;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @program: firefly
  * @desc:
@@ -12,4 +15,14 @@ public interface PayrollDatabase {
     Employee getEmployee(int id);
 
     void deleteEmployee(int id);
+
+    void addUnionMember(int memberId, Employee e);
+
+    Employee getUnionMember(int id);
+
+    void removeUnionMember(int memberId);
+
+    ArrayList<Integer> getAllEmployeeIds();
+
+    List<Employee> getAllEmployees();
 }

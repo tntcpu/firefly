@@ -43,7 +43,5 @@ public class TestSalesReceiptTransaction {
         SalesReceipt saleReceipt = cc.getSaleReceipt(cal.getTime());
         assertNotNull(saleReceipt);
         assertEquals(200,saleReceipt.getSaleAmount(),.001);
-
-
     }
 }
