@@ -15,7 +15,7 @@ public class MailMethod implements PaymentMethod {
 
     @Override
     public void pay(Paycheck paycheck) {
-        paycheck.setField("deposition", "mail");
+        paycheck.setField("disposition", "mail");
     }
 
     public String getAddress() {
