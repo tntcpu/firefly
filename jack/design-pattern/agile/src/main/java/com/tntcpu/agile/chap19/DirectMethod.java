@@ -29,6 +29,6 @@ public class DirectMethod implements PaymentMethod {
     }
 
     public String toString() {
-        return "direct";
+        return String.format("direct deposit into %s:%s", bank, aaccount);
     }
 }
