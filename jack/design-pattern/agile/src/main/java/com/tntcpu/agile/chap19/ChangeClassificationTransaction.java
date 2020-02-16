@@ -6,8 +6,8 @@ package com.tntcpu.agile.chap19;
  * @author: tntcpu
  * @create: 2020-02-16
  */
-public abstract class ChangeClassification extends ChangeEmployeeTransaction {
-    public ChangeClassification(int empId, PayrollDatabase database) {
+public abstract class ChangeClassificationTransaction extends ChangeEmployeeTransaction {
+    public ChangeClassificationTransaction(int empId, PayrollDatabase database) {
         super(empId, database);
     }
 

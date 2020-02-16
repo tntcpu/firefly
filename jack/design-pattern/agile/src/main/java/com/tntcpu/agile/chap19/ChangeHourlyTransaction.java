@@ -6,7 +6,7 @@ package com.tntcpu.agile.chap19;
  * @author: tntcpu
  * @create: 2020-02-16
  */
-public class ChangeHourlyTransaction extends ChangeClassification {
+public class ChangeHourlyTransaction extends ChangeClassificationTransaction {
     private final double hourlyRate;
 
     public ChangeHourlyTransaction(int empId, double hourlyRate, PayrollDatabase database) {

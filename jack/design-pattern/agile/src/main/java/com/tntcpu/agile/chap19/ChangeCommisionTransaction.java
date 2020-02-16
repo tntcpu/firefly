@@ -6,7 +6,7 @@ package com.tntcpu.agile.chap19;
  * @author: tntcpu
  * @create: 2020-02-16
  */
-public class ChangeCommisionTransaction extends ChangeEmployeeTransaction {
+public class ChangeCommisionTransaction extends ChangeClassificationTransaction {
     private final double baseSalary;
     private final double commisionRate;
 
@@ -16,17 +16,11 @@ public class ChangeCommisionTransaction extends ChangeEmployeeTransaction {
         this.commisionRate = commisionRate;
     }
 
-    @Override
-    protected void change(Employee e) {
-        e.setClassification(getClassification());
-        e.setSchedule(getSchedule());
-    }
-
-    private PaymentSchedule getSchedule() {
+    public PaymentSchedule getSchedule() {
         return new BiWeeklySchedule();
     }
 
-    private PaymentClassification getClassification() {
+    public PaymentClassification getClassification() {
         return new CommissionClassification(baseSalary, commisionRate);
     }
 }
