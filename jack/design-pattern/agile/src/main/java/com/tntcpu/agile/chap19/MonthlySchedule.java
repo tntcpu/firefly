@@ -22,7 +22,7 @@ public class MonthlySchedule implements PaymentSchedule {
 
     @Override
     public boolean isPayDate(Date payDate) {
-        return false;
+        return isLastDayOfMonth(payDate);
     }
 
     @Override

@@ -43,7 +43,7 @@ public class UnionAffiliation implements Affiliation {
     @Override
     public double calculateDeductions(Paycheck paycheck) {
         double totalDues = 0;
-        int fridays = NumberOfFridaysInPayPeriod(paycheck.getPayPeriodStartDate(), paycheck.getPayPeriodEndDate());
+        int fridays = numberOfFridaysInPayPeriod(paycheck.getPayPeriodStartDate(), paycheck.getPayPeriodEndDate());
         totalDues = dues * fridays;
 
         for (ServiceCharge charge : charges.values()) {
@@ -54,7 +54,7 @@ public class UnionAffiliation implements Affiliation {
         return totalDues;
     }
 
-    private int NumberOfFridaysInPayPeriod(Date payPeriodStartDate, Date payPeriodEndDate) {
+    private int numberOfFridaysInPayPeriod(Date payPeriodStartDate, Date payPeriodEndDate) {
         Calendar dayCa = Calendar.getInstance();
         dayCa.setTime(payPeriodStartDate);
         Calendar payPeriodEndCa = Calendar.getInstance();

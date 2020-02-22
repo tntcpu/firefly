@@ -17,7 +17,7 @@ public class Paycheck {
     private double deductions;
     private double netPay;
 
-    public Paycheck(Date payDate, Date payPeriodStartDate) {
+    public Paycheck(Date payPeriodStartDate, Date payDate) {
         this.payDate = payDate;
         this.payPeriodStartDate = payPeriodStartDate;
     }
