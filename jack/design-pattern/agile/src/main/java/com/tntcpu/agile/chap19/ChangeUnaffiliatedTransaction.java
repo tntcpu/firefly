@@ -14,7 +14,12 @@ public class ChangeUnaffiliatedTransaction extends ChangeAffiliationTransaction 
 
     @Override
     protected void recordMembership(Employee e) {
-
+        Affiliation affiliation = e.getAffiliation();
+        if (affiliation instanceof UnionAffiliation) {
+            UnionAffiliation unionAffiliation = (UnionAffiliation) affiliation;
+            int memberId = unionAffiliation.getMemberId();
+            database.removeUnionMember(memberId);
+        }
     }
 
     @Override
