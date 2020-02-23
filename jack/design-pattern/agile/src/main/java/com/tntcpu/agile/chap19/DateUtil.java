@@ -10,6 +10,8 @@ import java.util.Date;
  */
 public class DateUtil {
     public static boolean isInPayPeriod(Date theDate, Date startDate, Date endDate) {
-        return theDate.after(startDate) && theDate.before(endDate);
+        boolean result1 = theDate.after(startDate);
+        boolean result2 = (theDate.before(endDate)) || (theDate.equals(endDate));
+        return result1 && result2;
     }
 }
