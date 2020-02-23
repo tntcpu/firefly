@@ -42,7 +42,7 @@ public class TestPaySingleHourlyEmployeeTwoTimeCards {
         validateHourlyPaycheck(pt, empId, cal.getTime(), 7 * 15.25);
     }
 
-    private void validateHourlyPaycheck(PaydayTransaction pt, int empId, Date payDate, double pay) {
+    public static void validateHourlyPaycheck(PaydayTransaction pt, int empId, Date payDate, double pay) {
         Paycheck pc = pt.getPaycheck(empId);
         assertNotNull(pc);
         assertEquals(payDate, pc.getPayDate());
