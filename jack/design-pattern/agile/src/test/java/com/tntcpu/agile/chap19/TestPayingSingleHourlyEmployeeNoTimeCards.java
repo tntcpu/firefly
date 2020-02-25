@@ -36,7 +36,7 @@ public class TestPayingSingleHourlyEmployeeNoTimeCards {
         validatePaycheck(pt, empId, payDate, 0.0);
     }
 
-    private void validatePaycheck(PaydayTransaction pt, int empId, Date payDate, double pay) {
+    public static void validatePaycheck(PaydayTransaction pt, int empId, Date payDate, double pay) {
         Paycheck pc = pt.getPaycheck(empId);
         assertNotNull(pc);
         assertEquals(payDate, pc.getPayDate());
