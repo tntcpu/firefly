@@ -215,7 +215,7 @@ class TellManager implements Runnable {
 }
 
 public class BankTellerSimulation {
-    static final int MAX_LINE_SIZE = 50;
+    static final int MAX_LINE_SIZE = 500;
     static final int ADJUSTMENT_PERIOD = 1000;
 
     public static void main(String[] args) throws IOException {
